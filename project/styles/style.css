@@ -11,17 +11,12 @@ body {
     margin: 0 auto;
 }
 
-h1, h2, h3 {
+h1, h2, h3, input {
   font-family: 'Domine', serif;
   color: crimson;
   background-color: burlywood;
 }
 
-.input{ 
-    background-color: #2F3137;
-    padding: 1em;
-    color: white;
-}
 ul {
     list-style: none;
     padding: 0.5em;

@@ -19,12 +19,12 @@ addProtein();
 addBaking();
 addGrains();
 
-// Button to add an item to a list 
+
 groceryButton.addEventListener('click', addItem)
 
 function addItem() {
 	if (input.value.length === 0) {
-        alert("Add at least one item to your shopping list");
+        alert("Add one item to your shopping list");
     }			
 	else {
 	    let listItem = document.createElement("li");
@@ -39,7 +39,7 @@ function addItem() {
         list.appendChild(listItem);
 
         input.value = "";
-        
+
     purchased.addEventListener("click", function(){
         list.removeChild(listItem);
 
@@ -79,7 +79,7 @@ function addProtein() {
         purchased.addEventListener("click", function(){
             proteinList.removeChild(li);
         })
-    
+
         }
 }
 
