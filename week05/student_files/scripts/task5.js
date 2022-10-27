@@ -8,57 +8,57 @@
 // Step 4: Declare a variable to hold a message that will be displayed
 // Step 5: Using an if statement, if the day of the week is a weekday (i.e. Monday - Friday), set the message variable to the string 'Hang in there!'
 const day = new Date();
-const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-let today = weekday[day.getDay()];
+let today = day.getDay();
 
-let message = "";
-if ( today !== 'Sunday' || 'Saturday') {
-    message = 'Hang in there!';
+let message1 = "";
+if ( today !== '0' || '6') {
+    message1 = 'Hang in there!';
 }
 // Step 6: Using an else statement, set the message variable to 'Woohoo!  It is the weekend!'
 else {
-    message = 'Woohoo! It is the weekend!';
+    message1 = 'Woohoo! It is the weekend!';
 }
 /* SWITCH, CASE, BREAK */
         
 // Step 1: Declare a new variable to hold another message
 // Step 2: Use switch, case and break to set the message variable to the day of the week as a string (e.g. Sunday, Monday, etc.) using the day of week variable declared in Step 2 above
+let message2 = "";
 switch (today) {
-    case "Monday":
-      console.log("Monday, happy new Week!");
+    case 1:
+      message2 = "Monday";
       break;
-    case "Tuesday":
-      console.log("Tuesday");
+    case 2:
+        message2 = "Tuesday";
+        break;
+    case 3:
+        message2 = "Wednesday";
       break;
-    case "Wednesday":
-      console.log("Wednesday");
+    case 4:
+        message2 = "Thursday";
       break;
-    case "Thursday":
-      console.log("Thursday, almost  Friday!");
+    case 5:
+      message2 = "Friday";
       break;
-    case "Friday":
-      console.log("Friday");
-      break;
-    case "Saturday":
-        console.log("Saturday");
-    case "Sunday":
-            console.log("Sunday");
+    case 6:
+        message2 = "Saturday";
+        break;
+    case 0:
+        message2 = "Sunday";
+        break;
     default:
       console.log("going to be a great day");
+      break;
   }
 /* OUTPUT */
 // Step 1: Assign the value of the first message variable to the HTML element with an ID of message1
-document.querySelector('#message1').innerHTML = message;
+document.querySelector('#message1').innerHTML = message1;
 // Step 2: Assign the value of the second message variable to the HTML element with an ID of message2
-document.querySelector('#message2').innerHTML = today;
+document.querySelector('#message2').innerHTML = message2;
 
 
 
 /* FETCH */
 // Step 1: Declare a global empty array variable to store a list of temples
-let temples = [];
-let templesList = document.getElementById('temples')
-
 // Step 2: Declare a function named output that accepts a list of temples as an array argument and does the following for each temple:
 // - Creates an HTML <article> element
 // - Creates an HTML <h3> element and add the temple's templeName property to it
@@ -68,27 +68,28 @@ let templesList = document.getElementById('temples')
 // - Appends the <h3> element, the two <h4> elements, and the <img> element to the <article> element as children
 // - Appends the <article> element to the HTML element with an ID of temples
 function output(temples) {
-    temples.forEach(temple => {
-        let article = document.createElement('article');
-        let name = document.createElement('h3');
-        let location = document.createElement('h4');
-        let dedicated = document.createElement('h4');
-        let imageURL = document.createElement('img');
+    temples.forEach((temple) => {
 
-        name.innerHTML = temple.templeName;
-        location.innerHTML = temple.location;
-        dedicated.innerHTML = temple.dedicated;
-        imageURL.innerHTML.setAttribute("src",temple.imageURL);
-        imageURL.innerHTML.setAttribute("alt", temple.templeName);
+        let article = document.createElement("article");
+        let name = document.createElement("h3");
+        let location = document.createElement("h4");
+        let dedicated = document.createElement("h4");
+        let image = document.createElement("img");
+        
+        name.textContent = temple.templeName;
+        location.textContent = temple.location;
+        dedicated.textContent = temple.dedicated;
+        image.setAttribute("src", temple.imageUrl);
+        image.setAttribute("alt", temple.templeName);
 
         article.appendChild(name);
         article.appendChild(location);
         article.appendChild(dedicated);
-        article.appendChild(imageURL);
+        article.appendChild(image);
 
-        templesList.appendChild(article);
+        document.querySelector("#temples").appendChild(article);
     })
-}
+};
 
 
 // Step 3: Create another function called getTemples. Make it an async function.
@@ -97,31 +98,34 @@ function output(temples) {
 // Step 6: Finally, call the output function and pass it the list of temples. Execute your getTemples function to make sure it works correctly.
 
 
-let listURL = 'https://byui-cse.github.io/cse121b-course/week05/temples.json'
-
-async function getTemples(url) {
-    let response = await fetch(url);
+async function getTemples() {
+    let response = await fetch("https://byui-cse.github.io/cse121b-course/week05/temples.json");
     if ( response.ok) {
-     let temples = await response.json();
-     output(temples);
+     let templeList = await response.json();
+     output(templeList);
     }
 }
 
-getTemples(listURL);
+getTemples();
 
 // Step 7: Declare a function named reset that clears all of the <article> elements from the HTML element with an ID of temples
-
+function reset() {
+    document.querySelector("#temples").innerHTML = "";
+  };
 // Step 8: Declare a function named sortBy that does the following:
 // - Calls the reset function
 // - Sorts the global temple list by the currently selected value of the HTML element with an ID of sortBy
 // - Calls the output function passing in the sorted list of temples
+function sortBy() {
+    reset();
+  
+    let sortList = document.querySelector("#sortBy").value;
+    
+};
+
 
 // Step 9: Add a change event listener to the HTML element with an ID of sortBy that calls the sortBy function
-
-
-
-
-
+document.querySelector("#sortBy").addEventListener("change", sortBy);
 
 
 

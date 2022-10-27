@@ -4,19 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Javascript Project for CSE121 </title>
+	<link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <h1>Gift Registry</h1>
+    <h1>Grocery List</h1>
 <main>
 	<div class="input">
-		<label>Enter your gift wish here<br>
-			<input type="text" id="gift" placeholder="a cozy sweater" required></label>
-		<button type="submit">Add Gift</button>
+		<label>Enter your groceries here<br>
+			<input type="text" id="groceryList" placeholder=" apples" required></label>
+		<button type="submit" id="groceries">Add Item</button>
 	</div>
 	<div class="listcontainer">
 		<ul class="list">
 		</ul>
+	</div>
+
+<h2>Essentials</h2>
+	<div class="masterList"> 
+		<div>
+			<label>Dairy:</label>
+			<ul class="dairy"></ul>
+		</div>
+		<div>
+			<label>Protein:</label>
+			<ul class="protein"></ul>
+		</div>
+		<div>
+			<label>Baking:</label>
+			<ul class="baking"></ul>
+		</div>
+		<div>
+			<label>Grains:</label>
+			<ul class="grains"></ul>
+		</div>
 	</div>
 </main>
 <script src="./scripts/script.js"></script>

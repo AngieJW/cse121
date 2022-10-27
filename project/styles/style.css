@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Domine:wght@400;700&display=swap');
+
+body {
+    line-height: 1.5;
+    font-family: 'Anton', sans-serif;
+    max-width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+  font-family: 'Domine', serif;
+  color: crimson;
+  background-color: burlywood;
+}
+
+.input{ 
+    background-color: #2F3137;
+    padding: 1em;
+    color: white;
+}
+ul {
+    list-style: none;
+    padding: 0.5em;
+}
+button {
+    margin: 0.2em;
+}
+.listcontainer {
+    min-height: 200px;
+}
+.masterList {
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+}
+
+label {
+  color: crimson;
+}
