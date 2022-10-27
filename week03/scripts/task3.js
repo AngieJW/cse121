@@ -85,20 +85,42 @@ document.querySelector('#year').innerHTML = currentYear;
 
 // Step 1: Declare and instantiate an array variable to hold the numbers 1 through 25
 // Step 2: Assign the value of the array variable to the HTML element with an ID of "array"
-let arr = [];
+let numbers = [];
 
 for (let i = 1; i <= 25; i++) {
-   arr.push(i);
+   numbers.push(i);
 }
-document.querySelector('#array').innerHTML = arr;
+document.querySelector('#array').innerHTML = numbers;
 
 // Step 3: Use the filter array method to find all of the odd numbers of the array variable and assign the result to the HTML element with an ID of "odds" ( hint: % (modulus operartor) )
-//while arr[i] = 0
+let odds = numbers.filter(number => {
+    return number % 2 != 0;
+});
+    
+document.querySelector('#odds').innerHTML = odds;
 
 // Step 4: Use the filter array method to find all of the even numbers of the array variable and assign the result to the HTML element with an ID of "evens"
+let evens = numbers.filter(number => {
+    return number % 2 === 0;
+});
+    
+document.querySelector('#evens').innerHTML = evens;
 
 // Step 5: Use the reduce array method to sum the array variable elements and assign the result to the HTML element with an ID of "sumOfArray"
+let sumOfArray = numbers.reduce(function (total, item) {
+    return total + item;
+  });
+  document.querySelector('#sumOfArray').innerHTML = sumOfArray;
 
 // Step 6: Use the map array method to multiple each element in the array variable by 2 and assign the result to the HTML element with an ID of "multiplied"
+function multiplyBy2(number) {
+    return number*2;
+}
+let multiplied = numbers.map(multiplyBy2);
+document.querySelector('#multiplied').innerHTML = multiplied
 
 // Step 7: Use the map and reduce array methods to sum the array elements after multiplying each element by two.  Assign the result to the HTML element with an ID of "sumOfMultiplied"
+let sumOfMultiplied = multiplied.reduce(function (total, item) {
+    return total + item;
+  });
+  document.querySelector('#sumOfMultiplied').innerHTML = sumOfMultiplied;
