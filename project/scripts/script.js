@@ -7,9 +7,9 @@ let bakingList = document.querySelector(".baking")
 let grainsList = document.querySelector(".grains")
 
 let groceries = { 
-    dairy:["milk","cheese", "butter", "yogurt"],
+    dairy:["milk","cheese", "butter", "yogurt", "parmesan"],
     protein: ["beef","chicken","salmon", "haddock", "eggs"],
-    baking: ["sugar", "flour", "baking powder"],
+    baking: ["sugar", "flour", "baking powder", "vanilla extract"],
     grains: ["pasta", "rice", "bread", "oats", "breakfast cereal"],
 }
 
